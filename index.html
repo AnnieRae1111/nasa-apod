@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NASA APOD</title>
+  <link rel="icon" type="image/png" href="https://www.google.com/s2/favicons?domain=nasa.gov">
+  <script src="https://kit.fontawesome.com/52c17f33f1.js" crossorigin="anonymous"></script>
+  <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="loader">
+  <img class="hidden" src="./assets/rocket-1.svg" alt="Rocket Loading Animation" >
+</div>
+<div class="container">
+  <!-- Navigation -->
+  <div class="navigation-container">
+    <span class="background"></span>
+    <!-- Results Nav -->
+    <span class="navigation-items" id="resultsNav">
+      <h3 class="clickable">Favorites</h3>
+      <h3>&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;</h3>
+      <h3 class="clickable">Load More</h3>
+    </span>
+<!-- Favorites Nav -->
+<span class="navigation-items" id="favoritesNav">
+  <h3 class="clickable hidden">Load More NASA Images</h3>
+</span>
+  </div>
+</div>
+<!-- Images Container -->
+<div class="images-container">
+  <!-- <div class="card">
+    <a href="" title="View Full Image" target="_blank">
+      <img src="https://apod.nasa.gov/apod/image/2209/LightningStarTrails_Llimos_960.jpg"" alt="NASA Picture of the Day" class="card-img-top">
+    </a>
+    <div class="card-body">
+      <h5 class="card-title">Title of Image</h5>
+      <p class="clickable">Add to Favorites</p>
+      <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium, deserunt iusto perferendis neque mollitia libero, enim non quidem quos repellat laboriosam ipsum ex earum dicta quo, obcaecati reprehenderit cumque doloribus.</p>
+      <small class="text-muted">
+        <strong>12-2-2020</strong>
+        <span>Copyright Info</span>
+      </small>
+    </div>
+  </div> -->
+
+</div>
+<!-- Save Confirmation -->
+<div class="save-confirmed">
+  <h1>ADDED!</h1>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
