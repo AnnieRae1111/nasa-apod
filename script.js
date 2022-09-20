@@ -3,6 +3,8 @@ const favoritesNav = document.getElementById('favoritesNav');
 const imagesContainer = document.querySelector('.images-container');
 const loader = document.querySelector('.loader');
 
+const saveConfirmed = document.querySelector('.save-confirmed');
+
 //API Call
 const count = 10;
 const apiKey = 'DEMO_KEY';
@@ -41,6 +43,9 @@ const updateDOM = () => {
     saveText.classList.add('clickable');
     saveText.textContent = 'Add to Favorites';
     saveText.setAttribute('onclick', `saveFavorite('${result.url}')`);
+    //saveConfirmed
+    saveConfirmed.hidden = true;
+
     //card Text
     const cardText = document.createElement('p');
     cardText.classList.add('card-text');
@@ -80,7 +85,20 @@ const getNasaPictures = async () => {
 
 //Add result to favorites
 const saveFavorite = (itemUrl) => {
-  console.log(itemUrl);
+  //loop through resulst array
+  resultsArray.forEach((item) => {
+    if (item.url.includes(itemUrl && !favorites[itemUrl])) {
+      favorites[itemUrl] = item;
+      //key is itemUrl, value will be the item
+      console.log(favorites);
+      //Show save confirmation for 2 seconds
+      saveConfirmed.hidden = false;
+      setTimeout(() => {
+        saveConfirmed.hidden = true;
+      }, 2000);
+    }
+  });
+  console.log(favorites);
 };
 
 //on load
