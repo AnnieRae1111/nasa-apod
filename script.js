@@ -1,6 +1,6 @@
 const resultsNav = document.getElementById('resultsNav');
 const favoritesNav = document.getElementById('favoritesNav');
-const imagesContainer = document.querySelector('.save-confirmed');
+const imagesContainer = document.querySelector('.images-container');
 const loader = document.querySelector('.loader');
 
 //API Call
@@ -9,6 +9,7 @@ const apiKey = 'DEMO_KEY';
 const apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}&count=${count}`;
 
 let resultsArray = [];
+let favorites = {};
 
 //update DOM
 const updateDOM = () => {
@@ -39,6 +40,7 @@ const updateDOM = () => {
     const saveText = document.createElement('p');
     saveText.classList.add('clickable');
     saveText.textContent = 'Add to Favorites';
+    saveText.setAttribute('onclick', `saveFavorite('${result.url}')`);
     //card Text
     const cardText = document.createElement('p');
     cardText.classList.add('card-text');
@@ -53,12 +55,13 @@ const updateDOM = () => {
     const copyrightResult =
       result.copyright === 'undefined' ? '' : result.copyright;
     const copyright = document.createElement('span');
-    copyright.textContent = result.copyright;
+    copyright.textContent = `${copyrightResult}`;
+    //Append
     cardFooter.append(date, copyright);
     cardBody.append(cardTitle, saveText, cardText, cardFooter);
     link.append(image);
     card.append(link, cardBody);
-    imagesContainer.append(card);
+    imagesContainer.appendChild(card);
     console.log(card);
   });
 };
@@ -69,10 +72,15 @@ const getNasaPictures = async () => {
     const response = await fetch(apiUrl);
     resultsArray = await response.json();
     console.log(resultsArray);
-    updateDOM(resultsArray);
+    updateDOM();
   } catch (error) {
     console.log(error);
   }
+};
+
+//Add result to favorites
+const saveFavorite = (itemUrl) => {
+  console.log(itemUrl);
 };
 
 //on load
